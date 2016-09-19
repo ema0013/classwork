@@ -12,7 +12,7 @@ public class Student {
 	}
 	
 	public void talk(){
-		System.out.println("Hi, my name is " + name);
+		System.out.println("Hi, my name is " + this.name);
 		
 	}
 }
