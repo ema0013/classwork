@@ -8,6 +8,7 @@ public class EdwinMain {
 	static boolean inLoop;
 	static String response;
 	static Topic school;
+	static Topic like;
 
 	public static void main(String[] args) {
 		createTopics();
@@ -27,19 +28,23 @@ public class EdwinMain {
 		while (inLoop){
 			print("Greetings "+user+". How are you?");
 			response = getInput();
-			if(findKeyWord(response,"good",0)){
+			if(findKeyWord(response,"good",0) >= 0){
 				print("I'm so happy you're good.");
 			}
 			else if (response.indexOf("school")>= 0){
 				inLoop = false;//exit this loop
 				school.talk();
 			}
+			else if (response.indexOf("like")>= 0){
+				inLoop = false;
+				like.talk();
+			}
 			else	
 				print("I'm sorry. I don't understand you.");
 		}
 	}
 
-	public static boolean findKeyWord(String searchString, String key, int startIndex) {
+	public static int findKeyWord(String searchString, String key, int startIndex) {
 		//delete white space
 		String phrase = searchString.trim();
 		//set all letters to lower case
@@ -53,20 +58,44 @@ public class EdwinMain {
 			String after = " ";
 			// if phrase doesn't end with this word
 			if(psn + key.length() < phrase.length()){
-				after = phrase.substring(psn + key.length(), psn + key.length() + 1).toLowerCase();
+				after = phrase.substring(psn + key.length(), psn + key.length() + 1);
 			}
 			//if the phrase doesn't begin with this word
 			if(psn > 0){
-				before = phrase.substring(psn-1,psn).toLowerCase();
+				before = phrase.substring(psn-1,psn);
 			}
 			if(before.compareTo("a") < 0 && after.compareTo("a") < 0){
-				return true;
+				if(noNegations(searchString,psn)){
+					return psn;
+				}
 			}
 			// in case keyword wasn't found yet, repeat and check the rest of string
 			psn = phrase.indexOf(key,psn+1);
 		}
-
-		return false;
+		return -1;
+	}
+	//helper method. Contributes functionality to another method
+	//help make methods more readable
+	//private method, only used by the method it helps
+	private static boolean noNegations(String phrase, int index) {
+		//check for word "NO" (3 characters)
+		//check to see if there is space for the word "NO " to be in front of the index
+		if(index - 3 >= 0 && phrase.substring(index-3,index).equals(("no "))){
+			return false;
+		}
+		//check for "not "
+		if(index - 4 >= 0 && phrase.substring(index-4,index).equals(("not "))){
+			return false;
+		}
+		//check for "never "
+		if(index - 6 >= 0 && phrase.substring(index-6,index).equals(("never "))){
+			return false;
+		}
+		//check for "n't "
+		if(index -  4 >= 0 && phrase.substring(index-4,index).equals(("n't "))){
+			return false;
+		}
+		return true;
 	}
 
 	public static void promptInput() {
@@ -112,6 +141,7 @@ public class EdwinMain {
 	public static void createTopics() {
 		input = new Scanner(System.in);
 		school = new School();
+		like = new EdwinLike();
 
 	}
 
