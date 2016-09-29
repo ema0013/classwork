@@ -27,4 +27,11 @@ public class EdwinLike implements Topic{
 			}
 		}
 	}
+
+	public boolean isTriggered(String userInput) {
+		if(EdwinMain.findKeyWord(userInput, "like", 0) >=0 ){
+			return true;
+		}
+		return false;
+	}
 }

@@ -18,4 +18,16 @@ public class School implements Topic {
 			}
 		}
 	}
+
+	public boolean isTriggered(String userInput) {
+		//String [] triggers = {"school","class","teacher"};
+		// you could you use a for loop to iterate through an array
+		if(EdwinMain.findKeyWord(userInput, "school", 0) >=0 ){
+			return true;
+		}
+		if(EdwinMain.findKeyWord(userInput, "class", 0) >=0 ){
+			return true;
+		}
+		return false;
+	}
 }

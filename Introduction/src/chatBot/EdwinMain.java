@@ -9,6 +9,7 @@ public class EdwinMain {
 	static String response;
 	static Topic school;
 	static Topic like;
+	static Topic hello;
 
 	public static void main(String[] args) {
 		createTopics();
@@ -31,13 +32,17 @@ public class EdwinMain {
 			if(findKeyWord(response,"good",0) >= 0){
 				print("I'm so happy you're good.");
 			}
-			else if (response.indexOf("school")>= 0){
+			else if (like.isTriggered(response)){
 				inLoop = false;//exit this loop
 				school.talk();
 			}
-			else if (response.indexOf("like")>= 0){
+			else if (school.isTriggered(response)){
 				inLoop = false;
 				like.talk();
+			}
+			else if (hello.isTriggered(response)){
+				inLoop = false;
+				hello.talk();
 			}
 			else	
 				print("I'm sorry. I don't understand you.");
@@ -142,6 +147,7 @@ public class EdwinMain {
 		input = new Scanner(System.in);
 		school = new School();
 		like = new EdwinLike();
+		hello = new EdwinHello();
 
 	}
 
