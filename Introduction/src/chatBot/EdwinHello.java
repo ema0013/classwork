@@ -9,9 +9,9 @@ public class EdwinHello implements Topic {
 	
 	//responses are constants
 	private static String [] calmResponses = {"We've already said our hellos, remember?",
-			"Yes,hello to you too. Lets actually talk now."};
+			"Yes,hello to you too. Lets actually talk now.","I think we've spoken our introductions already."};
 	private static String [] angryResponses = {"Seriously? This has to stop.",
-			"You are beginning to ignore me. We've SAID HELLO."};
+			"You are beginning to ignore me. We've SAID HELLO.","Can you not?","Shut up already."};
 	
 	public EdwinHello(){
 		helloCount = 0;

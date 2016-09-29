@@ -34,11 +34,11 @@ public class EdwinMain {
 			}
 			else if (like.isTriggered(response)){
 				inLoop = false;//exit this loop
-				school.talk();
+				like.talk();
 			}
 			else if (school.isTriggered(response)){
 				inLoop = false;
-				like.talk();
+				school.talk();
 			}
 			else if (hello.isTriggered(response)){
 				inLoop = false;
