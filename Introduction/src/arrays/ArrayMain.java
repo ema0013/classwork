@@ -3,21 +3,23 @@ package arrays;
 public class ArrayMain {
 
 	public static void main(String[] args) {
+		arrayDemonstration();
+	}
+	public static void trackTime(){
 		//this is how you time how quickly a computer processes
 		long startTime = System.currentTimeMillis();
 		SampleElement sample = new SampleElement(10);
-		sample.increase();
 		System.out.println("The sample element has a number equal to "+sample.getNumber());
 		long endTime = System.currentTimeMillis();
 		System.out.println("Completed method in " +(endTime-startTime)+ " milliseconds");
 	}
-	
-	private static void printArray(String[] a) {
-		for(String s: a){
+
+	private static void printArray(int [] a) {
+		for(int s: a){
 			System.out.println(s);
 		}
 	}
-	
+
 	private static void populateArray(String[] a) {
 		for(int index = 0; index < a.length; index++){
 			a[index] = "value "+(index+1);
@@ -27,18 +29,18 @@ public class ArrayMain {
 	private static void changeString(String s){
 		s = "This string has been changed!";
 	}
-	
+
 	private static void changeArray(String[] someStrings){
 		someStrings = new String[100];
 		for(int i = 0; i < someStrings.length; i ++){
 			someStrings[i] = "new item "+(i+1);
 		}
 	}
-	
+
 	private static void changeArrayElement(String[] someStrings,int i){
 		someStrings[i] = "new item "+(i+1);
 	}
-	
+
 	private static void passByValueInformation(){
 		String [] someStrings = new String[100];
 		populateArray(someStrings);
@@ -81,7 +83,7 @@ public class ArrayMain {
 		for(String s: strings1){
 			System.out.println(s);
 		}
-		
+
 		for(int index = 0; index < strings2.length; index++){
 			strings2[index] = "value "+(index+1);
 		}
@@ -89,5 +91,49 @@ public class ArrayMain {
 			System.out.println(s);
 
 		}
+	}
+	private static void populateArrayNum(int[] a) {
+		for(int index = 0; index < a.length; index++){
+			a[index] =(index+1);
+		}
+	}
+	private static void randomPopulate(int [] a){
+		for (int index = 0; index < a.length; index++){
+			a[index] = (int)(Math.random()*50)+1;
+		}
+	}
+	private static int rollDie(){
+		return (int)(Math.random()*6)+1;
+	}
+	public static void arrayDemonstration(){
+		int[]numbers = new int[50];
+		populateArrayNum(numbers);
+		printArray(numbers);
+
+		int[]randomNumbers = new int [20];
+		randomPopulate(randomNumbers);
+		printArray(randomNumbers);
+		
+		int[]dieRolls = new int [10000];
+		int[]results = new int [11];
+		for(int i = 0; i < dieRolls.length; i ++)
+		{
+			dieRolls[i] = rollDie()+rollDie();
+			results[(dieRolls[i]-2)]++;
+		}
+		for (int i = 0; i < 11; i ++){
+			int percentage = (int)((double)results[i]/10000*100);
+			System.out.println((i+2)+" was rolled "+percentage+"% of the time.");
+		}
+		
+		String[] cardSuit = {"Diamonds","Clubs","Hearts","Spades"};
+		String[] cardRanks = {"Ace","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten","Jack","Queen","King"};
+		
+		for(int suit = 0; suit < cardSuit.length;suit++){
+			for (int rank = 0; rank < cardRanks.length; rank++){
+				System.out.println(cardRanks[rank] + " of " + cardSuit[suit]);
+			}
+		}
+		
 	}
 }
