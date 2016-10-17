@@ -134,6 +134,5 @@ public class ArrayMain {
 				System.out.println(cardRanks[rank] + " of " + cardSuit[suit]);
 			}
 		}
-		
 	}
 }
