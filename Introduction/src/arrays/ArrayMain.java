@@ -120,7 +120,7 @@ public class ArrayMain {
 			dieRolls[i] = rollDie()+rollDie();
 			results[(dieRolls[i]-2)]++;
 		}
-		for (int i = 0; i < 11; i ++){
+		for (int i = 0; i < results.length; i ++){
 			int percentage = (int)((double)results[i]/10000*100);
 			System.out.println((i+2)+" was rolled "+percentage+"% of the time.");
 		}
