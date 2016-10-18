@@ -14,12 +14,6 @@ public class ArrayMain {
 		System.out.println("Completed method in " +(endTime-startTime)+ " milliseconds");
 	}
 
-	private static void printArray(int [] a) {
-		for(int s: a){
-			System.out.println(s);
-		}
-	}
-
 	private static void populateArray(String[] a) {
 		for(int index = 0; index < a.length; index++){
 			a[index] = "value "+(index+1);
@@ -104,6 +98,11 @@ public class ArrayMain {
 	}
 	private static int rollDie(){
 		return (int)(Math.random()*6)+1;
+	}
+	private static void printArray(int [] a) {
+		for(int s: a){
+			System.out.println(s);
+		}
 	}
 	public static void arrayDemonstration(){
 		int[]numbers = new int[50];
