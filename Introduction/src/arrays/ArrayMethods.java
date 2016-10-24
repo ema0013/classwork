@@ -4,7 +4,7 @@ public class ArrayMethods {
 
 	public static void main(String[] args) {
 		int[] arr = {2,3,4,6,9,11,12,15};
-//		swap(arr,0,arr.length-1);
+//		swap(arr,0,arr.length-1);d
 		shuffle(arr);
 		print(arr);
 //		if(checkHalfWay(arr,12,0,arr.length-1)){
