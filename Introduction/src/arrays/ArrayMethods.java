@@ -3,11 +3,14 @@ package arrays;
 public class ArrayMethods {
 
 	public static void main(String[] args) {
-		int[] arr = {2,3,4,6,9,11,12,15};
+		int[] arr = {2,3,4,6,9,11,12,15,12,23,45,13,11,2,4,5,11,14,3,2,9,11,2,3};
+		int[] sub = {11,2,3};
+		contains(arr,sub);
 //		swap(arr,0,arr.length-1);d
-		print(arr);
-		cycleThrough(arr,1);
-		print(arr);
+//		print(arr);
+//		cycleThrough(arr,1);
+//		print(arr);
+//		print(getSubArray(arr,0,4));
 //		if(checkHalfWay(arr,12,0,arr.length-1)){
 //			System.out.println("The number you are searching for is less than"
 //					+" the value in the middle of the array");
@@ -47,6 +50,45 @@ public class ArrayMethods {
 				swap(array,j,j+1);
 		}
 	}
+	
+	public static int[] getSubArray(int[] arr, int startIndex, int endIndex){
+		int[] subArray = new int[endIndex-startIndex+1];
+		for(int i = 0;i < subArray.length;i++){
+			subArray[i] = arr[i+startIndex];
+		}
+		return subArray; 
+	}
+	/**
+	 * returns true if contains subArray
+	 * @param arr
+	 * @param subArr
+	 * @return
+	 */
+	public static boolean contains(int[] arr,int[] subArr){
+		for(int i = 0; i < arr.length; i ++){
+			if(arr[i] == subArr[0]){
+				//if(i == arr.length-1){
+				//	return false;
+				//}
+				//if(Array.equals(getSubArray(arr,i,subArr.length+i),subArr))
+				//	return true;
+				int j = 0;
+				while(j< subArr.length){
+					if(subArr[j] == arr[i + j] && j == subArr.length-1){
+						System.out.println("It matches at "+(i+j)+"!");
+						return true;
+					}
+					else if (subArr[j]!= arr[i+j]){
+						System.out.println("No match at "+(i+j)+"!");
+						break;
+					}
+					j++;
+				}
+			}
+		}
+		return false;
+	}
+	
 	/**
 	 * returns true if searchValue is less than element 
 	 * halfway between beginning and end
@@ -77,5 +119,6 @@ public class ArrayMethods {
 		for(int a:arr){
 			System.out.print(a +" ");
 		}
+		System.out.println("");
 	}
 }

@@ -11,6 +11,9 @@ public class ArrayMethods {
 		 * DO NOT spend hours and hours trying to fix perfect code just because my test
 		 * says that it isn't perfect!
 		 * */
+		int[] arr1 = {9,6,1,4,3,6,7,9};
+		int[] arr2 = {9,6,1,4,3,6,7,9};
+		System.out.print(longestSharedSequence(arr1,arr2));
 	}
 
 	public static int searchUnsorted(int[] arrayToSearch, int key){
@@ -102,7 +105,13 @@ public class ArrayMethods {
 		 * countDifferences({1,2,3},{1,3,2}) returns 2, since '2' and '3' are both present, but different locations
 		 * 
 		 * */
-		return 0;
+		int differenceCount = 0;
+		for(int i = 0; i < array1.length; i ++){
+			if(!(array1[i]==array2[i])){
+				differenceCount ++;
+			}
+		}
+		return differenceCount;
 	}
 
 
@@ -131,8 +140,45 @@ public class ArrayMethods {
 		 *          since the sequence '9,6,3,4,3' is in both arrays and is 5 integers long, it doesn't matter that the sequence begins at different indices 
 		 * longestSequence({9,6,1,4,3,6,7,9}, {9,6,5,8,3,6,7,0}) returns '3', since the sequence '3,6,7' is in both arrays and is 3 integers long
 		 * */
-
-		return 0;
+		int longest=0;
+		for(int i = 0; i < array1.length;i++){
+			for(int j = 0; j < array2.length; j ++){
+				if(array1[i]==array2[j]){
+					int current = 1;
+					int counter = 1;
+					if(i==array1.length-1||j==array2.length-1){
+						break;
+					}
+					while(array1[i+counter]==array2[j+counter]){
+						current++;
+						counter++;
+					}
+					if(longest<current){
+						longest = current;
+					}
+				}
+			}
+		}
+		return longest;
+	}
+	private static boolean contains(int[] arr,int[] subArr){
+		for(int i = 0; i < arr.length; i ++){
+			if(arr[i] == subArr[0]){
+				int j = 0;
+				while(j< subArr.length){
+					if(subArr[j] == arr[i + j] && j == subArr.length-1){
+						System.out.println("It matches!");
+						return true;
+					}
+					else if (subArr[j]!= arr[i+j]){
+						System.out.println("No match at "+(i+j)+"!");
+						break;
+					}
+					j++;
+				}
+			}
+		}
+		return false;
 	}
 
 	public static int[] generateDistinctItemsList(int n){
