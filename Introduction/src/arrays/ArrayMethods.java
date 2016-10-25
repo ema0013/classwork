@@ -17,6 +17,20 @@ public class ArrayMethods {
 //					+ "the value in the middle of the array");
 //		}
 	}
+	/**
+	 * returns number of elements in arr less than d
+	 * @param arr
+	 * @param d
+	 */
+	public static int countUnderBound(double[] arr, double d){
+		int total = 0;
+		for(double a:arr){
+			if(a<d)
+				total++;
+		}
+		return total;
+	}
+	
 	public static void cycleThrough(int[] array, int n){
 		for(int i = 0; i < n; i ++){
 			cycleOnce(array);
