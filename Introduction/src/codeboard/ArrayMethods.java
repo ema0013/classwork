@@ -1,5 +1,7 @@
 package codeboard;
 
+import java.lang.reflect.Array;
+
 public class ArrayMethods {
 	public static void main(String[] args) {
 
@@ -11,7 +13,7 @@ public class ArrayMethods {
 		 * DO NOT spend hours and hours trying to fix perfect code just because my test
 		 * says that it isn't perfect!
 		 * */
-		int[] arr1 = {9,6,1,4,3,6,7,9};
+		int[] arr1 = {9,2,1,6,2,4,3,9};
 		int[] arr2 = {9,6,1,4,3,6,7,9};
 		System.out.print(longestSharedSequence(arr1,arr2));
 	}
@@ -150,6 +152,9 @@ public class ArrayMethods {
 						break;
 					}
 					while(array1[i+counter]==array2[j+counter]){
+						if(i+counter==array1.length||j+counter==array2.length){
+							break;
+						}
 						current++;
 						counter++;
 					}
