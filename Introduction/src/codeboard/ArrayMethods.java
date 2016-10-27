@@ -15,7 +15,7 @@ public class ArrayMethods {
 		 * */
 		int[] arr1 = {9,2,1,6,2,4,3,9};
 		int[] arr2 = {9,6,1,4,3,6,7,9};
-		System.out.print(longestSharedSequence(arr1,arr2));
+		generateDistinctItemsList(15);
 	}
 
 	public static int searchUnsorted(int[] arrayToSearch, int key){
@@ -142,29 +142,7 @@ public class ArrayMethods {
 		 *          since the sequence '9,6,3,4,3' is in both arrays and is 5 integers long, it doesn't matter that the sequence begins at different indices 
 		 * longestSequence({9,6,1,4,3,6,7,9}, {9,6,5,8,3,6,7,0}) returns '3', since the sequence '3,6,7' is in both arrays and is 3 integers long
 		 * */
-		int longest=0;
-		for(int i = 0; i < array1.length;i++){
-			for(int j = 0; j < array2.length; j ++){
-				if(array1[i]==array2[j]){
-					int current = 1;
-					int counter = 1;
-					if(i==array1.length-1||j==array2.length-1){
-						break;
-					}
-					while(array1[i+counter]==array2[j+counter]){
-						if(i+counter==array1.length||j+counter==array2.length){
-							break;
-						}
-						current++;
-						counter++;
-					}
-					if(longest<current){
-						longest = current;
-					}
-				}
-			}
-		}
-		return longest;
+		return 0;
 	}
 	private static boolean contains(int[] arr,int[] subArr){
 		for(int i = 0; i < arr.length; i ++){
@@ -194,10 +172,24 @@ public class ArrayMethods {
 		 * contains only entries between 1 and 2n (inclusive) and has no duplicates
 		 * 
 		 * */
-		return null; 
+		 int[] array = new int [n];
+         for(int i = 0; i < array.length; i ++){
+            int nextNumber = (int)(Math.random()*(2*n)+1);
+            while(isInArray(array,nextNumber)){
+            }
+            array[i] = nextNumber;
+         }
+        return array; 
 	}
 
-
+	private static boolean isInArray(int[] arr, int key){
+        for(int a: arr){
+            if(a==key)
+                return true;
+        }
+        return false;
+    }
+	
 	public static void cycleThrough(int[] array, int n){
 		/** This problem represents people moving through a line.
 		 * Once they get to the front of the line, they get what they've been waiting for, then they 
@@ -242,4 +234,11 @@ public class ArrayMethods {
 		arr[index2] = placeHolder;
 	}
 
+	
+	private static void print(int[]arr){
+		for(int a:arr){
+			System.out.print(a +" ");
+		}
+		System.out.println("");
+	}
 }
