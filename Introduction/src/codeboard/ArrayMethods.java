@@ -128,7 +128,20 @@ public class ArrayMethods {
 		 * longestSequence({0,9,8,11,4,3,7,9}) returns '1', since there are no consecutive integers
 		 * */
 
-		return 0;
+		int longest = 1;
+		for(int i = 0; i < array1.length; i++){
+			if(i==array1.length-1)
+				break;
+			if(array1[i+1] == array1[i]+1){
+				int newCount = 2;
+				while(!(i+newCount==array1.length)&&array1[i+newCount] == array1[i]+newCount){
+					newCount++;
+				}
+				if(newCount>longest)
+					longest = newCount;
+			}
+		}
+		return longest;
 	}
 
 	public static int longestSharedSequence(int[] array1, int[] array2){
