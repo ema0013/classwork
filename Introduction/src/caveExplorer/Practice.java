@@ -3,6 +3,69 @@ package caveExplorer;
 public class Practice {
 
 	public static void main(String[] args) {
+		boolean [][] mines = new boolean [6][6];
+		createMines(mines, 10);
+		String [][] field = new String[mines.length][mines[0].length];
+		matchValues(field, mines);
+		printPic(field);
+	}
+
+	private static void matchValues(String[][] field, boolean[][] mines) {
+		// TODO Auto-generated method stub
+		for(int row = 0; row < field.length; row++){
+			for(int col = 0; col < field[row].length;col++){
+				if(mines[row][col]){
+					field[row][col] = "X";
+				}
+				else{
+					field[row][col] = countAdjacent(mines,row,col);
+				}
+			}
+		}
+	}
+
+	private static String countAdjacent(boolean[][] mines, int r, int c) {
+		// TODO Auto-generated method stub
+		// r and c represent coordinates of element we are providing a String for
+		int count = 0;
+		//loop through row above to row below 
+		for(int row = r-1; row <= r+1; row++){
+			//loop through col left to col right
+			for(int col = c-1; col <= c+1;col++){
+				if(row!=r && col!=c){
+					if(row>=0 && row < mines.length && col >=0 && col < mines[row].length ){
+						
+					}
+				}
+			}
+		}	
+		return null;
+	}
+
+	private static void createMines(boolean[][] mines, int numberOfMines) {
+		// TODO Auto-generated method stub
+		while(numberOfMines > 0){
+			int row = (int)Math.random()*mines.length;
+			int col = (int)Math.random()*mines.length;
+			if(mines[row][col]){
+				mines[row][col] = true;
+				numberOfMines --;
+			}
+		}
+		
+	}
+
+	public static void printPic(String[][] arr) {
+		for(String[] a : arr){
+			for( String b: a){
+				System.out.print(b);
+			}
+			System.out.println();
+		}
+		
+	}
+	
+	public static void picDrawing(){
 		String[][] test = new String[10][12];
 		for(int row = 0; row < test.length; row++){
 			for(int col = 0; col < test[row].length;col++){
@@ -15,7 +78,6 @@ public class Practice {
 				test[row][col] = "M";
 			}
 		}
-		//randBirds(test);
 		test[1][2] = "O";
 		test[0][2] = "|";
 		test[2][2] = "|";
@@ -39,32 +101,4 @@ public class Practice {
 		
 		printPic(test);
 	}
-
-	public static void printPic(String[][] arr) {
-		for(String[] a : arr){
-			for( String b: a){
-				System.out.print(b);
-			}
-			System.out.println();
-		}
-		
-	}
-	
-	public static void randBirds(String[][] arr){
-		for(int i = 0; i < 5; i++){
-			int randRow = (int)Math.random()*arr.length;
-			int randCol = (int)Math.random()*arr[0].length;
-			while(randRow > 7){
-				randRow = (int)Math.random()*arr.length;
-			}
-			while(randCol > 9){
-				randCol = (int)Math.random()*arr[0].length;
-			}
-			arr[randRow][randCol] = "O";
-			arr[randRow][randCol+1] = "V";
-			arr[randRow][randCol+2] = "O";
-		}
-		
-	}
-	
 }
