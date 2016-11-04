@@ -28,12 +28,25 @@ public class CaveExplorer {
 
 	private static void startExploring(){
 		while(true){
+			
 			System.out.println(inventory.getDescription());
 			
 			System.out.println(currentRoom.getDescription());
 			System.out.println("What would you like to do?");
 			String input = in.nextLine();
 			currentRoom.interpretInput(input);
+		}
+	}
+	public static void printMap(){
+		//TODO HOMEWORK FINISH THIS 
+		String[][] test = new String [caves.length*3][caves[0].length*3];
+		for(int col = 0; col < caves[0].length;col++){
+			test[0][col] = "_";
+			test[test.length-1][col] = "_";
+		}
+		for(int row = 0; row < caves.length; row++){
+			test[row][0] = "|";
+			test[row][test[row].length-1] = "|";
 		}
 	}
 	
