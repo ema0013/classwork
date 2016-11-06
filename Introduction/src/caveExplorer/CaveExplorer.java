@@ -43,7 +43,10 @@ public class CaveExplorer {
 		for(int row = 0; row < test.length;row++){
 			if(row%2==0){
 				for(int col = 0; col < test[row].length;col++){
-						test[row][col] = "-";
+					test[row][col] = "_";
+					if(row!=0&&col%2==0){
+						test[row][col] = "|";
+					}
 				}
 			}
 			else{
@@ -59,7 +62,7 @@ public class CaveExplorer {
 					}
 				}
 			}
-			
+
 		}
 		printPic(test);
 	}
