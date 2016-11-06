@@ -28,7 +28,7 @@ public class CaveExplorer {
 
 	private static void startExploring(){
 		while(true){
-			
+			printMap();
 			System.out.println(inventory.getDescription());
 			
 			System.out.println(currentRoom.getDescription());
@@ -39,15 +39,38 @@ public class CaveExplorer {
 	}
 	public static void printMap(){
 		//TODO HOMEWORK FINISH THIS 
-		String[][] test = new String [caves.length*3][caves[0].length*3];
-		for(int col = 0; col < caves[0].length;col++){
-			test[0][col] = "_";
-			test[test.length-1][col] = "_";
+		String[][] test = new String [(caves.length*2)+1][(caves[0].length*2)+1];
+		for(int row = 0; row < test.length;row++){
+			if(row%2==0){
+				for(int col = 0; col < test[row].length;col++){
+						test[row][col] = "-";
+				}
+			}
+			else{
+				for(int col = 0; col < test[row].length;col++){
+					if(col%2==0){
+						test[row][col] = "|";
+					}
+					else if (currentRoom == caves[(row-1)/2][(col-1)/2]){
+						test[row][col] = "X";
+					}
+					else{
+						test[row][col] = " ";
+					}
+				}
+			}
+			
 		}
-		for(int row = 0; row < caves.length; row++){
-			test[row][0] = "|";
-			test[row][test[row].length-1] = "|";
-		}
+		printPic(test);
 	}
 	
+	private static void printPic(String[][] arr) {
+		for(String[] a : arr){
+			for( String b: a){
+				System.out.print(b);
+			}
+			System.out.println();
+		}
+		
+	}
 }
