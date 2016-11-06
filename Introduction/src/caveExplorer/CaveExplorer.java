@@ -39,7 +39,7 @@ public class CaveExplorer {
 	}
 	public static void printMap(){
 		//TODO HOMEWORK FINISH THIS 
-		String[][] test = new String [(caves.length*2)+1][(caves[0].length*2)+1];
+		String[][] test = new String[(caves.length*2)+1][(caves[0].length*2)+1];
 		for(int row = 0; row < test.length;row++){
 			if(row%2==0){
 				for(int col = 0; col < test[row].length;col++){
