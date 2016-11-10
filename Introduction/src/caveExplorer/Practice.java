@@ -30,7 +30,7 @@ public class Practice {
 			for(int col = 0; col < pic[row].length;col++){
 				if(row == i && col == j)
 					
-				pic[row][col] = "|";
+				pic[row][col] = "X";
 			}
 		}
 	}
