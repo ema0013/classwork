@@ -13,10 +13,19 @@ public class Pokemon {
 		this.poisoned = false;
 		this.hp = 100;
 	}
+	
+	public void attack(Pokemon target, Attack attack){
+		if(Math.random() < .9){
+			attack.attack(target);
+			System.out.println("The attack hit");
+		}
+		else{
+			System.out.println("The attack missed");
+		}
+	}
 
 	public void iChooseYou(){
-		System.out.println(getName());
-		System.out.println(getName());
+		System.out.println(getName()+","+getName()+"!");
 	}
 	
 	public int getHP(){
