@@ -36,8 +36,6 @@ public abstract class RecursionIntro implements Action{
 			print("Move  from "+from+" to "+to);
 		}
 		else{
-			System.out.println("In order to move "+numberOfDiscs+"from "+
-		from+" to "+to+", we must move "+mo+" ");
 			//move all but the last one to peg B
 			hanoi(numberOfDiscs-1,from,to,mid);
 			//move the last one to C
