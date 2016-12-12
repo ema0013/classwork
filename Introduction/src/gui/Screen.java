@@ -28,6 +28,7 @@ public class Screen {
 		g.fillRect(0, 0, image.getWidth(), image.getHeight());
 		g.setColor(Color.black);
 		g.drawString("Hello World!", 40, 100);
+		g.drawOval(20, 70, 100, 50);
 	}
 	
 	public BufferedImage getImage(){
