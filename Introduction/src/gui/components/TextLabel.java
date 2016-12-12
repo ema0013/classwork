@@ -43,7 +43,6 @@ public class TextLabel extends Component {
 		this.size = size;
 	}
 
-	@Override
 	public void update(Graphics2D g) {
 		g.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 		g.setColor(Color.black);
