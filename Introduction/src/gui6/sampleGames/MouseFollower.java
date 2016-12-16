@@ -3,11 +3,11 @@ package gui6.sampleGames;
 import gui6.GUIApplication;
 import gui6.screens.CoordinateScreen;
 
-public class MouseFollower extends GUIApplication {
+public class MouseFollower extends GUIApplication implements Runnable {
 
 	//FIELDS
 	private CoordinateScreen cs;
-	
+	public static MouseFollower game;
 	
 	public MouseFollower(int width, int height) {
 		super(width, height);
@@ -21,7 +21,9 @@ public class MouseFollower extends GUIApplication {
 	}
 
 	public static void main(String[] args) {
-		new MouseFollower(800,600);
+		game = new MouseFollower(800,600);
+		Thread app = new Thread(game);
+		app.start();
 	}
 
 }

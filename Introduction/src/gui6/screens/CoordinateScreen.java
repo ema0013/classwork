@@ -23,7 +23,7 @@ public class CoordinateScreen extends Screen {
 		TextLabel text = 
 				new TextLabel(20, 200, 500, 40, "Some text");
 		viewObjects.add(text);
-		button = new Button(40,200,80,40,"Button",
+		button = new Button(60,200,80,40,"Button",
 				new Color(100,100,250),new Action() {
 			
 			public void act() {

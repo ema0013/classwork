@@ -8,7 +8,7 @@ public abstract class GUIApplication extends JFrame{
 
 	//FIELDS
 	private Screen currentScreen;
-	
+
 
 	public GUIApplication(int width, int height) {
 		super();
@@ -20,7 +20,7 @@ public abstract class GUIApplication extends JFrame{
 	}
 
 	public abstract void initScreen();
-	
+
 	public void paint(Graphics g){
 		g.drawImage(currentScreen.getImage(), 0, 0, null);
 	}
@@ -28,16 +28,27 @@ public abstract class GUIApplication extends JFrame{
 	public void setScreen(Screen s){
 		currentScreen = s;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-}
+	public void run(){
+		while(true){
+			currentScreen.update();
+			//updates the Window
+			repaint();
+			try {
+				Thread.sleep(40);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+	}
