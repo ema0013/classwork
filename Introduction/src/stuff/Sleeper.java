@@ -6,8 +6,15 @@ public class Sleeper implements Runnable{
 	private int sleepTime;
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		Thread one = new Thread(new Sleeper(1));
+		Thread two = new Thread(new Sleeper(2));
+		Thread three = new Thread(new Sleeper(3));
+		Thread four = new Thread(new Sleeper(4));
+		
+		one.start();
+		two.start();
+		three.start();
+		four.start();
 	}
 	
 	public Sleeper(int number) {
@@ -18,6 +25,13 @@ public class Sleeper implements Runnable{
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
-		
+		System.out.println("Thread # "+number+" will sleep for "+sleepTime+" milliseconds.");
+		try {
+			Thread.sleep(sleepTime);
+			System.out.println("Thread #: "+number+" woke up.");
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
