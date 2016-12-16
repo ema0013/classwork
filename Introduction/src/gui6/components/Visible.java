@@ -1,4 +1,4 @@
-package gui.components;
+package gui6.components;
 
 import java.awt.image.BufferedImage;
 
