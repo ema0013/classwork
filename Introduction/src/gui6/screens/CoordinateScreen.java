@@ -10,11 +10,13 @@ import gui6.components.TextLabel;
 import gui6.components.Visible;
 import gui6.components.Action;
 import gui6.components.Button;
+import gui6.components.TextArea;
 
 public class CoordinateScreen extends Screen implements MouseMotionListener{
 
 	private Button button;
 	private TextLabel text;
+	private TextArea test;
 	
 	public CoordinateScreen(int width, int height) {
 		super(width, height);
