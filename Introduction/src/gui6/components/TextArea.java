@@ -34,7 +34,7 @@ public class TextArea extends TextLabel {
 					//controls a single line
 					while(i < words.length && fm.stringWidth(line) + fm.stringWidth(words[i]) < getWidth()){
 						line += words[i]+" ";
-						i++;
+						i++;//
 					}
 					if(y < getHeight()){
 						g.drawString(line, 2, y);
