@@ -16,7 +16,7 @@ public class CoordinateScreen extends Screen implements MouseMotionListener{
 
 	private Button button;
 	private TextLabel text;
-	private TextArea test;
+	private TextArea area;
 	
 	public CoordinateScreen(int width, int height) {
 		super(width, height);
@@ -34,6 +34,10 @@ public class CoordinateScreen extends Screen implements MouseMotionListener{
 			}
 		});
 		viewObjects.add(button);
+		area = new TextArea(20,300,500,100,"This is really long text."
+				+ "It prints over multiple lines, as you can see."
+				+ "We worked on this in class. It is called TextArea.");
+		viewObjects.add(area);
 	}
 
 	@Override
