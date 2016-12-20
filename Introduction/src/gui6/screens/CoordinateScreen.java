@@ -10,6 +10,7 @@ import gui6.components.TextLabel;
 import gui6.components.Visible;
 import gui6.components.Action;
 import gui6.components.Button;
+import gui6.components.Graphic;
 import gui6.components.TextArea;
 
 public class CoordinateScreen extends Screen implements MouseMotionListener{
@@ -17,6 +18,7 @@ public class CoordinateScreen extends Screen implements MouseMotionListener{
 	private Button button;
 	private TextLabel text;
 	private TextArea area;
+	private Graphic plumbus;
 	
 	public CoordinateScreen(int width, int height) {
 		super(width, height);
@@ -38,6 +40,8 @@ public class CoordinateScreen extends Screen implements MouseMotionListener{
 				+ "It prints over multiple lines, as you can see."
 				+ "We worked on this in class. It is called TextArea.");
 		viewObjects.add(area);
+		plumbus = new Graphic(500,30,200,200,"resources/sampleImages/plumbus.jpg");
+		viewObjects.add(plumbus);
 	}
 
 	@Override
