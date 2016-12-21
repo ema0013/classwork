@@ -2,18 +2,20 @@ package gui6.screens;
 
 import java.awt.Color;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 
 import gui6.Screen;
 import gui6.components.TextLabel;
 import gui6.components.Visible;
+import gui6.sampleGames.MouseFollower;
 import gui6.components.Action;
 import gui6.components.Button;
 import gui6.components.Graphic;
 import gui6.components.TextArea;
 
-public class CoordinateScreen extends Screen implements MouseMotionListener{
+public class CoordinateScreen extends Screen implements MouseMotionListener,MouseListener{
 
 	private Button button;
 	private TextLabel text;
@@ -32,7 +34,7 @@ public class CoordinateScreen extends Screen implements MouseMotionListener{
 		button = new Button(200,200,80,40,"Button",new Color(100,100,250),new Action() {
 			public void act() {
 				// TODO Auto-generated method stub
-				
+				MouseFollower.game.setScreen(MouseFollower.sad);
 			}
 		});
 		viewObjects.add(button);
@@ -60,6 +62,37 @@ public class CoordinateScreen extends Screen implements MouseMotionListener{
 
 	public MouseMotionListener getMouseMotionListener(){
 		return this;
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		if(button.isHovered(e.getX(), e.getY())){
+			button.act();
+			}
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	

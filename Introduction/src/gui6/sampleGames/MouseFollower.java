@@ -8,6 +8,7 @@ public class MouseFollower extends GUIApplication implements Runnable {
 	//FIELDS
 	public static CoordinateScreen cs;
 	public static MouseFollower game;
+	public static SadReactsOnly sad;
 	
 	public MouseFollower(int width, int height) {
 		super(width, height);
@@ -17,6 +18,7 @@ public class MouseFollower extends GUIApplication implements Runnable {
 	@Override
 	public void initScreen() {
 		cs = new CoordinateScreen(getWidth(), getHeight());
+		sad = new SadReactsOnly(getWidth(),getHeight());
 		setScreen(cs);
 	}
 
