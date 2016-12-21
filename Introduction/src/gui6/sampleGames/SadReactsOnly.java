@@ -17,7 +17,7 @@ public class SadReactsOnly extends Screen {
 
 	@Override
 	public void initObjects(ArrayList<Visible> viewObjects) {
-		sadreact = new Graphic(0,0,"resources/sampleImages/sadreactsonly.png");
+		sadreact = new Graphic(100,100,"resources/sampleImages/sadreactsonly.png");
 		viewObjects.add(sadreact);
 
 	}

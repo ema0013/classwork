@@ -33,7 +33,6 @@ public class CoordinateScreen extends Screen implements MouseMotionListener,Mous
 		viewObjects.add(text);
 		button = new Button(200,200,80,40,"Button",new Color(100,100,250),new Action() {
 			public void act() {
-				// TODO Auto-generated method stub
 				MouseFollower.game.setScreen(MouseFollower.sad);
 			}
 		});
@@ -64,6 +63,10 @@ public class CoordinateScreen extends Screen implements MouseMotionListener,Mous
 		return this;
 	}
 
+	public MouseListener getMouseListener(){
+		return this;
+	}
+	
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		if(button.isHovered(e.getX(), e.getY())){
