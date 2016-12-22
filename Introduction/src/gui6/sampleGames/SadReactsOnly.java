@@ -21,7 +21,7 @@ public class SadReactsOnly extends Screen {
 	public void initObjects(ArrayList<Visible> viewObjects) {
 		sadreact = new Graphic(100,100,"resources/sampleImages/sadreactsonly.png");
 		viewObjects.add(sadreact);
-		text = new TextArea(20,300,50,50,"SAD REACTS ONLY");
+		text = new TextArea(50,300,100,300,"SAD REACTS ONLY");
 		viewObjects.add(text);
 
 	}
