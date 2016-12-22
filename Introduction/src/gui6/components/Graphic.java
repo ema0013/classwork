@@ -107,6 +107,10 @@ public class Graphic implements Visible {
 			e.printStackTrace();
 		}
 	}
+	
+	public void setImage(BufferedImage i){
+		this.image = i;
+	}
 
 	@Override
 	public BufferedImage getImage() {
