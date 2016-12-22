@@ -1,4 +1,4 @@
-package gui6.sampleGames;
+package gui6.screens;
 
 import java.util.ArrayList;
 

@@ -2,6 +2,7 @@ package gui6.sampleGames;
 
 import gui6.GUIApplication;
 import gui6.screens.CoordinateScreen;
+import gui6.screens.SadReactsOnly;
 
 public class MouseFollower extends GUIApplication implements Runnable {
 
