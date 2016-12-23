@@ -1,20 +1,20 @@
 package gui6.sampleGames;
 
 import gui6.GUIApplication;
-import gui6.screens.ClickableScreen;
+import gui6.screens.ClickScreen;
 
 public class ClickableGame extends GUIApplication implements Runnable{
 
 	//FIELDS
 	public static ClickableGame game;
-	public static ClickableScreen screen1;
+	public static ClickScreen screen1;
 	
 	public ClickableGame(int width,int height) {
 		super(width,height);
 	}
 	@Override
 	public void initScreen() {
-		screen1 = new ClickableScreen(800,600);
+		screen1 = new ClickScreen(800,600);
 		setScreen(screen1);
 
 	}

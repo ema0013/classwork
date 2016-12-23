@@ -11,11 +11,11 @@ import gui6.components.Action;
 import gui6.components.ClickableGraphic;
 import gui6.components.Visible;
 
-public class ClickableScreen extends Screen implements MouseMotionListener,MouseListener{
+public class ClickScreen extends Screen implements MouseMotionListener,MouseListener{
 
 	private ClickableGraphic pic;
 
-	public ClickableScreen(int width, int height) {
+	public ClickScreen(int width, int height) {
 		super(width, height);
 
 	}
