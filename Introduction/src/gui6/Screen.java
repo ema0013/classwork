@@ -66,6 +66,13 @@ public abstract class Screen {
 		return null;
 	}
 
+	public void addObjects(Visible v){
+		viewObjects.add(v);
+	}
+	
+	public void remove(Visible v){
+		viewObjects.remove(v);
+	}
 }
 
 
