@@ -7,6 +7,7 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 import gui6.Screen;
+import gui6.components.Action;
 import gui6.components.ClickableGraphic;
 import gui6.components.Visible;
 
