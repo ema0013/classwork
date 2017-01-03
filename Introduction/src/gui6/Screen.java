@@ -125,7 +125,10 @@ public abstract class Screen {
 		 * 		if(i>5)list.remove(i);
 		 * }
 		 * 		
-		 * 
+		 * ONE MORE NOTE:
+		 * if you call list.remove(int) it will return 
+		 * the object being removed at that index
+		 * so you can do something like this : System.out.println(list.remove(0).toString() +"was removed");
 		 *  
 		 **/
 		
@@ -133,8 +136,21 @@ public abstract class Screen {
 	}
 	
 	
+	public void moveToBack(Visible v){
+		if(viewObjects.contains(v)){
+			viewObjects.remove(v);
+			//the "back" is index 0
+			viewObjects.add(0,v);
+			// this moves everything else forward in the list.
+		}
+	}
 	
-	
+	public void moveToFront(Visible v){
+		if(viewObjects.contains(v)){
+			viewObjects.remove(v);
+			viewObjects.add(v);
+		}
+	}
 	
 	
 	
