@@ -2,6 +2,7 @@ package gui.whackAMole;
 
 import java.util.ArrayList;
 
+import gui6.components.Action;
 import gui6.components.TextLabel;
 import gui6.components.Visible;
 import gui6.screens.ClickableScreen;
@@ -52,8 +53,64 @@ public class WhackAMoleScreen extends ClickableScreen {
 		changeText("Set...");
 		changeText("Go!");
 		changeText("");
+		//since this is time attack mode, we will use a while loop
+		//not necessary for games that aren't timed
+		while(timeLeft>0){
+			updateTimer();
+			updateAllMoles();
+			appearNewMole();
+		}
 	}
 	
+	private void appearNewMole() {
+		double chance = .1*(60-timeLeft)/60;
+		if(Math.random()<chance){
+			final MoleInterface mole = getAMole();
+			mole.setAppearancetime((int)(500+Math.random())*2000);
+			//tell the mole what to do when clicked
+			mole.setAction(new Action(){
+				public void act() {
+					player.increaseScore(1);
+					remove(mole);
+					moles.remove(mole);
+					
+				}
+				
+			});
+			addObjects(mole);
+			moles.add(mole);
+		}
+		
+	}
+
+	private void updateAllMoles() {
+		for(int i = 0; i < moles.size(); i++){
+			MoleInterface m = moles.get(i);
+			int screenTime = m.getAppearanceTime()-100;
+			m.setAppearancetime(screenTime);
+			if(m.getAppearanceTime()<=0){
+				remove(m);
+				//remove from screen
+				moles.remove(m);
+				i--;
+				//compensate for mole removed from ArrayList
+			}
+		}
+		
+	}
+
+	private void updateTimer() {
+		try {
+			Thread.sleep(100);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		timeLeft-= .1;
+		//.1 is not clean binary number. to fix output cast it.
+		timeLabel.setText(""+(int)(timeLeft*10)/10.0);
+	}
+
 	private void changeText(String string){
 		label.setText(string);
 		try{

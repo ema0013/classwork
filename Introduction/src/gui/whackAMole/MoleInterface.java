@@ -3,6 +3,7 @@
  */
 package gui.whackAMole;
 
+import gui6.components.Action;
 import gui6.components.Clickable;
 
 /**
@@ -11,5 +12,11 @@ import gui6.components.Clickable;
  *
  */
 public interface MoleInterface extends Clickable {
+
+	int getAppearanceTime();
+
+	void setAppearancetime(int screenTime);
+
+	void setAction(Action action);
 
 }
