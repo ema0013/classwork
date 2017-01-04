@@ -18,6 +18,8 @@ public class WhackAMoleScreen extends ClickableScreen {
 	public WhackAMoleScreen(int width, int height) {
 		super(width, height);
 		timeLeft = 30;
+		Thread play = new Thread(this);
+		play.start();
 	}
 
 	@Override

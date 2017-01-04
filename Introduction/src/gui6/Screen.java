@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 import gui6.components.Visible;
 
-public abstract class Screen {
+public abstract class Screen implements Runnable{
 
 	private BufferedImage image;
 	private ArrayList<Visible> viewObjects;
