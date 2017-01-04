@@ -45,6 +45,21 @@ public class WhackAMoleScreen extends ClickableScreen {
 	private MoleInterface getAMole() {
 		return null;
 	}
+	public void run(){
+		changeText("Ready...");
+		changeText("Set...");
+		changeText("Go!");
+		changeText("");
+	}
+	
+	private void changeText(String string){
+		label.setText(string);
+		try{
+			Thread.sleep(1000);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
 
 
 }
