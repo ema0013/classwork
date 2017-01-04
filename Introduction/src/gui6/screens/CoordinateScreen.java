@@ -98,6 +98,12 @@ public class CoordinateScreen extends Screen implements MouseMotionListener,Mous
 		
 	}
 
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
+	}
+
 	
 	
 	

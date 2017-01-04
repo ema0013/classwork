@@ -84,4 +84,10 @@ public class ClickScreen extends Screen implements MouseMotionListener,MouseList
 
 	}
 
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
