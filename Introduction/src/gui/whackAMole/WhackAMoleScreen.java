@@ -46,7 +46,7 @@ public class WhackAMoleScreen extends ClickableScreen {
 	 *to implement later, after EnemyTeam implements MoleInterface
 	 */
 	private MoleInterface getAMole() {
-		return new Mole((int)Math.random()*getWidth(),(int)Math.random()*getHeight());
+		return new Mole((int)(Math.random()*getWidth()),(int)(Math.random()*getHeight()));
 	}
 	public void run(){
 		changeText("Ready...");
