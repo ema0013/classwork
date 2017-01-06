@@ -19,6 +19,8 @@ public class WhackAMoleScreen extends ClickableScreen {
 	public WhackAMoleScreen(int width, int height) {
 		super(width, height);
 		timeLeft = 30;
+		//when making simon, creating a thread like this is necessary
+		//since simon's screen changes
 		Thread play = new Thread(this);
 		play.start();
 	}
@@ -54,7 +56,7 @@ public class WhackAMoleScreen extends ClickableScreen {
 		changeText("Go!");
 		changeText("");
 		//since this is time attack mode, we will use a while loop
-		//not necessary for games that aren't timed
+		//not necessary for games that aren't timed(like Simon)
 		while(timeLeft>0){
 			updateTimer();
 			updateAllMoles();
@@ -110,7 +112,7 @@ public class WhackAMoleScreen extends ClickableScreen {
 		//.1 is not clean binary number. to fix output cast it.
 		timeLabel.setText(""+(int)(timeLeft*10)/10.0);
 	}
-
+	//use this method in Simon too!
 	private void changeText(String string){
 		label.setText(string);
 		try{
