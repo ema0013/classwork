@@ -3,6 +3,7 @@ package gui.simon;
 import java.awt.Color;
 import java.util.ArrayList;
 
+import gui6.Screen;
 import gui6.components.Action;
 import gui6.components.TextLabel;
 import gui6.components.Visible;
@@ -28,7 +29,52 @@ public class SimonScreenEdwin extends ClickableScreen implements Runnable {
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
+		label.setText("");
+		nextRound();
+	}
+
+	private void nextRound() {
+		// TODO Auto-generated method stub
+		acceptingInput = false;
+		roundNumber++;
+		progress.setRound(roundNumber);
+		sequence.add(randomMove());
+		progress.setSequenceSize(sequence.size());
+		changeText("Simon's turn");
+		label.setText("");
+		playSequence();
+		changeText("Your turn");
+		label.setText("");
+		acceptingInput = true;
+		sequenceIndex = 0;
+	}
+
+	private void playSequence() {
+		ButtonInterfaceEdwin b = null;
+		for(int i = 0; i < sequence.size();i++){
+			if(b!=null){
+				b.dim();
+				b = sequence.get(i).getButton();
+				b.highlight();
+				int sleepTime =(3000*(3/(roundNumber+3)));
+				try{
+					Thread.sleep(sleepTime);
+				}catch(Exception e){
+					e.printStackTrace();
+				}
+			}
+		}
+		b.dim();
 		
+	}
+
+	private void changeText(String s) {
+		label.setText(s);
+		try{
+			Thread.sleep(1000);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 	}
 
 	@Override

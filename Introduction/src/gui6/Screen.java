@@ -13,7 +13,7 @@ import gui6.components.Visible;
 public abstract class Screen implements Runnable{
 
 	private BufferedImage image;
-	private ArrayList<Visible> viewObjects;
+	protected ArrayList<Visible> viewObjects;
 
 
 	public Screen(int width, int height) {

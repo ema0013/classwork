@@ -8,5 +8,7 @@ public interface ProgressInterfaceEdwin extends Visible {
 		// TODO Auto-generated method stub
 		
 	}
+	void setRound(int i);
+	void setSequenceSize(int i);
 
 }
