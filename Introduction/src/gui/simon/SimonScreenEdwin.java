@@ -3,6 +3,7 @@ package gui.simon;
 import java.awt.Color;
 import java.util.ArrayList;
 
+import gui6.components.Action;
 import gui6.components.TextLabel;
 import gui6.components.Visible;
 import gui6.screens.ClickableScreen;
@@ -46,13 +47,12 @@ public class SimonScreenEdwin extends ClickableScreen implements Runnable {
 		
 	}
 	private MoveInterfaceEdwin randomMove() {
-		ButtonInterfaceEdwin b;
 		int randomButton = (int)(Math.random()*buttons.length);
 		while(randomButton==lastSelectedButton){
 			randomButton = (int)(Math.random()*buttons.length);
 		}
-		b = buttons[randomButton];
-		return getMove(b);
+		lastSelectedButton = randomButton;
+		return getMove(buttons[randomButton]);
 	}
 
 	/**
@@ -67,11 +67,49 @@ public class SimonScreenEdwin extends ClickableScreen implements Runnable {
 		int numberOfButtons = 6;
 		Color[] buttonColors = {Color.CYAN,Color.DARK_GRAY,Color.GREEN,Color.MAGENTA,Color.ORANGE,Color.YELLOW};
 		for(int i = 0; i < buttonColors.length;i++){
-			ButtonInterfaceEdwin b = getAButton();
+			final ButtonInterfaceEdwin b = getAButton();
 			b.setColor(buttonColors[i]);
 			b.setX(50*i);
 			b.setY(40);
+			b.setAction(new Action(){
+				public void act(){
+					if(acceptingInput){
+						Thread blink = new Thread(new Runnable(){
+							public void run(){
+								b.highlight();
+								try {
+									Thread.sleep(800);
+								} catch (InterruptedException e) {
+									e.printStackTrace();
+								}
+								b.dim();
+							}
+						});
+						
+						blink.start();
+						if(b==sequence.get(sequenceIndex).getButton()){
+							sequenceIndex++;
+							
+						}
+						else{
+							b.gameOver();
+							return;
+						}
+						if(sequenceIndex==sequence.size()){
+							Thread nextRound = new Thread(SimonScreenEdwin.this);
+							nextRound.start();
+						}
+						
+					}
+				}
+			});
+			viewObjects.add(b);
 		}
+	}
+
+	private ButtonInterfaceEdwin getAButton() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
