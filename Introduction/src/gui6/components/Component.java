@@ -58,6 +58,12 @@ public abstract class Component implements Visible {
 				BufferedImage.TYPE_INT_ARGB);
 		return image.createGraphics();
 	}
+	public void setX(int x){
+		this.x = x;
+	}
+	public void setY(int y){
+		this.y = y;
+	}
 	
 	
 	
