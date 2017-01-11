@@ -13,6 +13,7 @@ import gui6.sampleGames.MouseFollower;
 import gui6.components.Action;
 import gui6.components.Button;
 import gui6.components.Graphic;
+import gui6.components.MovingComponent;
 import gui6.components.TextArea;
 
 public class CoordinateScreen extends Screen implements MouseMotionListener,MouseListener{
@@ -43,6 +44,11 @@ public class CoordinateScreen extends Screen implements MouseMotionListener,Mous
 		viewObjects.add(area);
 		plumbus = new Graphic(500,30,200,200,"resources/sampleImages/plumbus.jpg");
 		viewObjects.add(plumbus);
+		MovingComponent c = new MovingComponent(20,20,100,100);
+		viewObjects.add(c);
+		c.setVx(2);
+		c.setVy(1);
+		c.play();
 	}
 
 	@Override
