@@ -156,4 +156,16 @@ public class Graphic implements Visible {
 
 	}
 
+	@Override
+	public void setX() {
+		this.x = x;
+		
+	}
+
+	@Override
+	public void setY() {
+		this.y = y;
+		
+	}
+
 }

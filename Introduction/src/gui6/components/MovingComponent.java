@@ -141,4 +141,18 @@ public class MovingComponent extends Component implements Runnable{
 			go.start();
 		}
 	}
+
+
+	@Override
+	public void setX() {
+		this.x = x;
+		
+	}
+
+
+	@Override
+	public void setY() {
+		this.y = y;
+		
+	}
 }

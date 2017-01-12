@@ -7,6 +7,8 @@ public interface Visible {
 	public BufferedImage getImage();
 	public int getX();
 	public int getY();
+	public void setX();
+	public void setY();
 	public int getWidth();
 	public int getHeight();
 	public boolean isAnimated();

@@ -71,6 +71,22 @@ public class TextLabel extends Component {
 		if(text != null) g.drawString(text, 4, getHeight()-5);
 	}
 
+
+
+	@Override
+	public void setX() {
+		this.x = x;
+		
+	}
+
+
+
+	@Override
+	public void setY() {
+		this.y = y;
+		
+	}
+
 	
 	
 	
