@@ -11,7 +11,7 @@ public class TextLabel extends Component {
 	private String text;
 	private String font;
 	private int size;
-	
+
 	public TextLabel(int x, int y, int w, int h, String text) {
 		super(x, y, w, h);
 		this.text = text;
@@ -20,8 +20,8 @@ public class TextLabel extends Component {
 		update();
 	}
 
-	
-	
+
+
 	public String getText() {
 		return text;
 	}
@@ -70,37 +70,21 @@ public class TextLabel extends Component {
 		g.setFont(new Font(font,Font.PLAIN,size));
 		if(text != null) g.drawString(text, 4, getHeight()-5);
 	}
-
-
-
-	@Override
-	public void setX() {
-		this.x = x;
-		
-	}
-
-
-
-	@Override
-	public void setY() {
-		this.y = y;
-		
-	}
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
