@@ -6,8 +6,6 @@ import java.awt.event.MouseMotionListener;
 
 import javax.swing.JFrame;
 
-import gui.whackAMole.MoleInterface;
-import gui.whackAMole.PlayerInterface;
 
 public abstract class GUIApplication extends JFrame implements Runnable{
 
@@ -61,18 +59,6 @@ public abstract class GUIApplication extends JFrame implements Runnable{
 	
 	
 	
-	/**
-	 * placeholder until our partner
-	 * finished the design of players.Change this once' its done.
-	 * 
-	 */
-	public PlayerInterface getAPlayer(){
-		return null;
-	}
-
-	public MoleInterface getMole(){
-		return null;
-	}
 
 
 
