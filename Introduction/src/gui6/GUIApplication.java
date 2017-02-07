@@ -7,10 +7,6 @@ import java.awt.event.MouseMotionListener;
 
 import javax.swing.JFrame;
 
-<<<<<<< HEAD
-
-=======
->>>>>>> branch 'master' of https://github.com/ema0013/classwork.git
 public abstract class GUIApplication extends JFrame implements Runnable{
 
 	//FIELDS
@@ -61,15 +57,6 @@ public abstract class GUIApplication extends JFrame implements Runnable{
 			}
 		}
 	}
-
-<<<<<<< HEAD
-	
-	
-	
-	
-=======
->>>>>>> branch 'master' of https://github.com/ema0013/classwork.git
-
 
 
 
