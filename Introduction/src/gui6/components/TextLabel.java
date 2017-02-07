@@ -69,7 +69,7 @@ public class TextLabel extends Component {
 		g.setColor(Color.black);
 		g.setFont(new Font(font,Font.BOLD|Font.ITALIC,size));
 		if(text != null) g.drawString(text, 4, getHeight()-5);
-	}
+	}//
 }
 
 
