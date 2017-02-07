@@ -3,6 +3,7 @@ package gui6;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.awt.image.BufferedImage;
@@ -67,6 +68,9 @@ public abstract class Screen implements Runnable{
 		return null;
 	}
 
+	public KeyListener getKeyListener(){
+		return null;
+	}
 	public void addObjects(Visible v){
 		viewObjects.add(v);
 	}
